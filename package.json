@@ -15,8 +15,9 @@
     "@types/node": "^24.10.1",
     "aws-cdk": "2.1141.0",
     "jest": "^30",
+    "ts-node": "^10.9.2",
     "tsx": "^4.23.0",
-    "typescript": "~7.0.2"
+    "typescript": "^5.7.3"
   },
   "dependencies": {
     "@aws-sdk/client-cognito-identity-provider": "^3.1146.0",
