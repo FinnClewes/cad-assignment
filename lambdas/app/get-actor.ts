@@ -48,15 +48,15 @@ export const handler = async (
         })
       );
       if (!roleResult.Item) {
-        return response(404, { message: `Actor ${actorId} not found in movie ${movieId}` });
+        return response(404, { message: `No role found for actor ${actorId} in movie ${movieId}` });
       }
       const role = toRole(roleResult.Item);
       console.log("GetCommand response: ", roleResult);
       return response(200, { data: { actor, role } });
     }
-    return response(200, { data: actor })
+    return response(200, { data: actor });
   } catch (err) {
     console.error("DynamoDB error:", err);
-    return response(500, { message: "Internal server error", error: err });
+    return response(500, { message: "Internal server error" });
   }
 };
