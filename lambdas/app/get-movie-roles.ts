@@ -8,6 +8,7 @@ import {
   parseId,
   tableName,
   toRole,
+  isMovieItem,
 } from "../shared/db";
 import { response } from "../shared/http";
 import { logRequest } from "../shared/request-logger";
@@ -51,6 +52,11 @@ export const handler = async (
     );
 
     const resultItems = queryResult.Items ?? [];
+    
+    if (!resultItems.some(isMovieItem)) {
+      return response(404, { message:`Movie ${movieId} not found` });
+    }
+
     return response(200, { data: resultItems.filter(isRoleItem).map(toRole) });
   } catch (err) {
     console.error("DynamoDB error:", err);
