@@ -52,9 +52,9 @@ export const handler = async (
       }
       const role = toRole(roleResult.Item);
       console.log("GetCommand response: ", roleResult);
-      return response(200, { data: {actor, role} })
+      return response(200, { data: { actor, role } });
     }
-  return response(200, { data: actor })
+    return response(200, { data: actor })
   } catch (err) {
     console.error("DynamoDB error:", err);
     return response(500, { message: "Internal server error", error: err });
