@@ -39,7 +39,6 @@ export const handler = async (
         return response(404, { message: `No role found for actor ${actorId} in movie ${movieId}` });
       }
       const role = toRole(roleResult.Item);
-      console.log("GetCommand response: ", roleResult);
       return response(200, { data: { role } });
     }
     const queryResult = await ddb.send(
