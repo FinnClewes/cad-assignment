@@ -6,5 +6,4 @@ export const logRequest = (event: APIGatewayProxyEvent): void => {
     (entry): entry is [string, string] => entry[1] !== undefined,
   );
   const query = params.length ? `?${new URLSearchParams(params)}` : '';
-  console.log(`${username}   ${event.path}${query}`);
 };
