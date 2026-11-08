@@ -26,7 +26,6 @@ export const handler = async (
     const username = payload['cognito:username'];
     return policy(payload.sub, 'Allow', event.methodArn, { username });
   } catch (err) {
-    console.log('Token verification failed:', (err as Error).message);
     return policy('anonymous', 'Deny', event.methodArn);
   }
 };
